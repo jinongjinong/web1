@@ -1,0 +1,346 @@
+<!-- <? include $_SERVER["DOCUMENT_ROOT"]."/nadm/include/common.php"; ?>
+<? include $_SERVER["DOCUMENT_ROOT"]."/AceMTcounter/_AceMTcounter.php"; //접속자 통계 ?> -->
+<?
+// 모바일 리디렉팅
+$mAgent = array("iPhone","iPod","Android","Blackberry", "Opera Mini", "Windows ce", "Nokia", "sony" );
+$chkMobile = false;
+for($i=0; $i<sizeof($mAgent); $i++){
+	if(stripos( $_SERVER['HTTP_USER_AGENT'], $mAgent[$i] )){
+		$chkMobile = true;
+		break;
+	}
+}
+
+if ($chkMobile){
+	$url = (isset( $_SERVER["HTTPS"] ) && strtolower( $_SERVER["HTTPS"] ) == "on"?"https://":"http://");
+	$url .= $_SERVER['HTTP_HOST']."/mobile".$_SERVER['REQUEST_URI'];
+	header("location:".$url);
+}
+?>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<? include "include/head.html"; ?>
+	<link rel="stylesheet" href="css/swiper.css"><!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="css/main.css">
+	<script>
+		var gid = 0;
+		var sid = 1;
+	</script>
+
+	<!-- <script type="text/javascript">
+	if (navigator.userAgent.match(/iPad|iPhone|Mobile|UP.Browser|Android|BlackBerry|Windows CE|Nokia|webOS|Opera Mini|SonyEricsson|opera mobi|Windows Phone|IEMobile|POLARIS/) != null){
+		var durl = location.pathname;
+		if (location.pathname == "/"){
+			durl = "/mobile";
+		} else {
+			durl = "/mobile" + location.pathname;
+		}
+		document.location.href = durl;
+	}
+	</script> -->
+
+</head>
+<body>
+	<? include "include/header.html"; ?>
+	<div id="wrap" class="scroll">
+
+		<div class="section">
+			<!-- visual slider -->
+			<div id="visual" class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide visual1 list1">
+						<span class="visualAni1" data-x="22%" data-y="22.453%" data-delay="700" data-spd="1300"><img src="image/main/visual/visual1_txt1.png" /></span>
+						<!-- <span class="visualAni2" data-x="53%" data-y="46.336%" data-delay="1500" data-spd="1300"><img src="image/main/visual/visual1_txt2.png" /></span> -->
+					</div>
+					<!-- <div class="swiper-slide visual2 list2">
+						<span class="visualAni1" data-x="37.343%" data-y="20.84%" data-delay="700" data-spd="800"><img src="image/main/visual/visual2_txt1.png" /></span>
+						<span class="visualAni2" data-x="41.25%" data-y="25.966%" data-delay="1000" data-spd="800"><img src="image/main/visual/visual2_txt2.png" /></span>
+						<span class="visualAni3" data-x="39.635%" data-y="31.932%" data-delay="1300" data-spd="800"><img src="image/main/visual/visual2_txt3.png" /></span>
+						<span class="visualAni4" data-x="49.01%" data-y="40.336%" data-delay="1800" data-spd="800"><img src="image/main/visual/visual2_txt4.png" /></span>
+					</div> -->
+				</div>
+				<!-- Add Pagination -->
+				<!-- <div class="v-pagination"></div> -->
+			</div>
+			<!-- //visual slider -->
+			<!--quick tab-->
+			<div class="main_quick">
+				<span class="open"><img src="image/main/quick/open.png" alt="" /></span>
+				<ul class="tab animate">
+					<!-- <li class="tab1">
+						<a href="">
+							<img src="image/main/quick/tab1.png" class="img1" />
+							<img src="image/main/quick/tab1_on.png" class="img2" />
+						</a>
+					</li> -->
+					<!-- <li class="tab2">
+						<a href="">
+							<img src="image/main/quick/tab2.png" class="img1" />
+							<img src="image/main/quick/tab2_on.png" class="img2" />
+						</a>
+					</li> -->
+					<li class="tab3">
+						<a href="sub/unit.html">
+							<img src="image/main/quick/tab3.png" class="img1" />
+							<img src="image/main/quick/tab3_on.png" class="img2" />
+						</a>
+					</li>
+					<!-- <li class="tab4">
+						<a href="">
+							<img src="image/main/quick/tab4.png" class="img1" />
+							<img src="image/main/quick/tab4_on.png" class="img2" />
+						</a>
+					</li> -->
+					<li class="tab5">
+						<a href="sub/e_catalog.html">
+							<img src="image/main/quick/tab5.png" class="img1" />
+							<img src="image/main/quick/tab5_on.png" class="img2" />
+						</a>
+					</li>
+					<li class="tab6">
+						<a href="sub/interest.html">
+							<img src="image/main/quick/tab6.png" class="img1" />
+							<img src="image/main/quick/tab6_on.png" class="img2" />
+						</a>
+					</li>
+					<li class="tab7">
+						<a href="sub/location.html">
+							<img src="image/main/quick/tab7.png" class="img1" />
+							<img src="image/main/quick/tab7_on.png" class="img2" />
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!--//quick-->
+		</div>
+		<!--//section (1)-->
+
+		<div class="section">
+			<div class="premiumWrapper">
+				<img src="image/main/premium/title.png" alt="" />
+				<div class="swiper-container premium_slide">
+					<ul class="swiper-wrapper animate">
+						<li class="swiper-slide">
+							<a href="sub/site.html">
+								<img src="image/main/premium/premium1.jpg" class="img1" />
+								<img src="image/main/premium/premium1_on.jpg" class="img2" />
+							</a>
+						</li>
+						<li class="swiper-slide">
+							<a href="sub/brand.html">
+								<img src="image/main/premium/premium2.jpg" class="img1" />
+								<img src="image/main/premium/premium2_on.jpg" class="img2" />
+							</a>
+						</li>
+						<li class="swiper-slide">
+							<a href="sub/community.html">
+								<img src="image/main/premium/premium3.jpg" class="img1" />
+								<img src="image/main/premium/premium3_on.jpg" class="img2" />
+							</a>
+						</li>
+					</ul><!--swiper-wrapper-->
+				</div>
+				<p class="premium_control_left"><img src="image/main/premium/prev.png" /></p>
+				<p class="premium_control_right"><img src="image/main/premium/next.png" /></p>
+			</div>
+		</div>
+		<!--//section (2)-->
+
+		<div class="section" id="footer">
+			<? include "include/footer.html"; ?>
+		</div>
+		<!--//section (3)-->
+
+	</div>
+	<!--//wrap (e)-->
+
+<script type="text/javascript">
+	$(function(){
+		var scrollCheck = true;
+		var sectionLength = $('.section').length;
+		var sectionIdx = 0;
+		var moveTop = null;
+
+		$(".section").each(function () {
+			// 개별적으로 Wheel 이벤트 적용
+			$(this).on("mousewheel DOMMouseScroll", function (e) {
+				e.preventDefault();
+				var delta = 0;
+				if (!event) event = window.event;
+				if (event.wheelDelta) {
+						delta = event.wheelDelta / 120;
+						if (window.opera) delta = -delta;
+				} else if (event.detail) delta = -event.detail / 3;
+
+				//스크롤 중복방지
+				if(!scrollCheck){
+					return false;
+				};
+
+				// 마우스휠을 위에서 아래로
+				if (delta < 0) {
+					if(sectionIdx < sectionLength-1){
+						scrollCheck = false;
+						++sectionIdx;
+						moveTop = $('.section').eq(sectionIdx).offset().top;
+						move(moveTop);
+					}
+				} else {
+					// 마우스휠을 아래에서 위로
+					if(sectionIdx > 0){
+						scrollCheck = false;
+						--sectionIdx;
+						moveTop = $('.section').eq(sectionIdx).offset().top;
+						move(moveTop);
+					}
+				}
+			});
+		});
+
+		// 화면 이동 0.8초(800)
+		function move(moveTop){
+			$("html,body").stop().animate({
+				scrollTop: moveTop + 'px'
+				}, {
+					duration: 400, complete: function () {
+						scrollCheck = true;
+					}
+			});
+		}
+
+		//스크롤시 체크
+		$(window).on({
+			scroll: function() {
+				indexScroll('.section');
+			},
+			load: function() {
+				indexScroll('.section');
+			}
+		})
+
+		function indexScroll($section) {
+			var winHeight = $(document).scrollTop();
+			var bottomCheck = $(document).height() <= $(window).height() + winHeight;
+
+			$.each($($section), function(idx, item) {
+
+				var $target = $($section).eq(idx);
+				var targetTop = $target.offset().top;
+			});
+		};
+
+	})
+</script>
+
+
+
+<script src="js/slider/swiper.min.js"></script>
+<script>
+	//*************************************************visual slider
+	var vswiper = new Swiper('#visual', {
+		init: false,
+		// direction: 'horizontal',
+		// spaceBetween: 0,
+		effect: 'fade',
+		centeredSlides: true,
+		speed: 1000,
+		autoplay: {
+			delay: 5000,
+			disableOnInteraction: false,
+		},
+		loop: true,
+		pagination: {
+			el: '.v-pagination',
+			clickable: true,
+		},
+	});
+
+	//visual slider text animation
+	function vswiperAnimate(){
+		var s = vswiper.activeIndex;
+		var vswData = $("#visual .swiper-slide").eq(s);
+		var vswCnt = vswData.find("span").length;
+
+		for(i=1; i<=vswCnt; i++){
+			var obj = vswData.find(".visualAni" + i);
+			var ax = obj.attr("data-x");
+
+			var axfrom;
+			if (ax.indexOf("-")  == -1){
+				axfrom = "left";
+			} else {
+				axfrom = "right";
+				ax = ax.replace("-", "");
+			}
+
+			var ay = obj.attr("data-y");
+			var ayfrom;
+			if (ay.indexOf("-")  == -1){
+				ayfrom = "top";
+			} else {
+				ayfrom = "bottom";
+				ay = ay.replace("-", "");
+			}
+
+			var ad = parseInt(obj.attr("data-delay"));
+			var as = parseInt(obj.attr("data-spd"));
+
+			var params = {};
+			params[axfrom] = ax;
+			params[ayfrom] = ay;
+			params["opacity"] = 1;
+
+			$(obj).removeAttr("style");
+			obj.stop().delay(ad).animate(params, as, "easeOutCirc", function(){
+
+			});
+		}
+	}
+
+	vswiper.on('init', function () {
+		//vswiperAnimate();
+	});
+
+	vswiper.on('slideChangeTransitionStart', function () {
+		// var currentDelay = $(".visual li").eq(this.realIndex).find(".visual_txt_1").attr("data-delay"); // 첫번째 텍스트의 딜레이 시간만큼
+		// $(".visual li span").animate({"opacity":"0"}, currentDelay); // 텍스트 다시 안보이게
+		vswiperAnimate();
+	});
+
+	vswiper.init();
+
+
+	//*************************************************premium slider
+	var premium = new Swiper('.premium_slide', {
+		autoplay: true,
+		loop: true,
+		width:1840,
+		speed: 1500,
+		effect: 'slide',
+		slidesPerView: "auto",
+		spaceBetween: 40,
+		centeredSlides: true,
+		navigation: {
+			prevEl: '.premium_control_left',
+			nextEl: '.premium_control_right',
+		}
+	});
+
+	//*************************************************on & off
+	$(document).ready(function(){
+		$(".animate li").hover(
+			function() {
+				$(this).find(".img1").stop().fadeOut(400);
+				$(this).find(".img2").stop().fadeIn(400);
+			},
+			function() {
+				$(this).find(".img2").stop().fadeOut(400);
+				$(this).find(".img1").stop().fadeIn(400);
+			}
+		)
+	});
+</script>
+
+</body>
+</html>
